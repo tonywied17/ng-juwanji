@@ -14,6 +14,9 @@ import { TokenStorageService } from '../_services/token-storage.service';
 export class AddBlogComponent implements OnInit {
 
   currentUser: any;
+  isLoggedIn = false;
+  showBlogPage = false;
+  private roles: string[] = [];
 
   selectedTeam = '';
 
@@ -33,7 +36,15 @@ export class AddBlogComponent implements OnInit {
   constructor(private userService: UserService, private token: TokenStorageService, private blogService: BlogService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.token.getToken();
     this.currentUser = this.token.getUser();
+
+    if (this.isLoggedIn) {
+      const user = this.token.getUser();
+      this.roles = user.roles;
+      this.showBlogPage = this.roles.includes('ROLE_MODERATOR') ? true : false;
+      this.showBlogPage = this.roles.includes('ROLE_ADMIN') ? true : false;
+    }
   }
 
 

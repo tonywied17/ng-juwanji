@@ -1,3 +1,4 @@
+<div *ngIf="showBlogPage">
 <div *ngIf="viewMode; else editable">
     <div *ngIf="currentBlog.id">
       <h4>Blog</h4>
@@ -105,3 +106,5 @@
       <p>Cannot access this Blog...</p>
     </div>
   </ng-template>
+
+</div>

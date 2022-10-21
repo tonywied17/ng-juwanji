@@ -16,6 +16,7 @@ export class BoardUserComponent implements OnInit {
   isLoggedIn = false;
   Blogs: any;
   showAdminControls = false;
+  showUserFeed = false;
   private roles: string[] = [];
 
   message = '';
@@ -34,6 +35,9 @@ export class BoardUserComponent implements OnInit {
       const user = this.token.getUser();
       this.roles = user.roles;
       this.showAdminControls = this.roles.includes('ROLE_ADMIN');
+      this.showUserFeed = this.roles.includes('ROLE_USER');
+      this.showUserFeed = this.roles.includes('ROLE_MODERATOR');
+      this.showUserFeed = this.roles.includes('ROLE_ADMIN');
     }
 
 

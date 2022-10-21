@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from 'src/app/_services/blog.service';
 import { Blog } from 'src/app/_models/blog.model';
+import { UserService } from '../_services/user.service';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-blog-list',
@@ -13,11 +15,29 @@ export class BlogListComponent implements OnInit {
   currentBlog: Blog = {};
   currentIndex = -1;
   title = '';
+  currentUser: any;
+  isLoggedIn = false;
+  showBlogPage = false;
+  private roles: string[] = [];
 
-  constructor(private blogService: BlogService) { }
+  constructor(
+    private blogService: BlogService,
+    private userService: UserService, 
+    private token: TokenStorageService,
+    ) { }
 
   ngOnInit(): void {
     this.retrieveBlog();
+
+    this.isLoggedIn = !!this.token.getToken();
+    this.currentUser = this.token.getUser();
+
+    if (this.isLoggedIn) {
+      const user = this.token.getUser();
+      this.roles = user.roles;
+      this.showBlogPage = this.roles.includes('ROLE_MODERATOR') ? true : false;
+      this.showBlogPage = this.roles.includes('ROLE_ADMIN') ? true : false;
+    }
   }
 
   retrieveBlog(): void {
