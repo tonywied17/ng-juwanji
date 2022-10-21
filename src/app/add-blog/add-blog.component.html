@@ -1,0 +1,36 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" required [(ngModel)]="blog.title" name="title" />
+      </div>
+
+      <div class="form-group">
+        <label for="post">Post</label>
+        <input class="form-control" id="post" required [(ngModel)]="blog.post" name="post" />
+      </div>
+
+      <div class="form-group">
+        <label for="tag">Tag</label>
+
+        <p>You select your team {{ selectedTeam }} using change event</p>
+
+       <select class="form-control" #teams (change)="onSelected(teams.value)">
+          <option default>Pick a Category</option>
+          <option>Phillies</option>
+          <option>Eagles</option>
+          <option>Sixers</option>
+        </select>
+
+      </div>
+
+      <button (click)="saveBlog()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Blog was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newBlog()">Add</button>
+    </div>
+  </div>
+</div>

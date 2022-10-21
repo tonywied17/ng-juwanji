@@ -1,0 +1,27 @@
+<div class="list-container">
+  <a routerLink="../add" class="post-btn">Post Blog</a>
+  <div class="search-container">
+
+    <input type="text" placeholder="Search by title" [(ngModel)]="title" class="search-box" />
+    <a (click)="searchTitle()" class="search-btn">
+      Search
+    </a>
+
+  </div>
+
+<h5 style="margin:1em;margin-top:2em;">Edit Blogs:</h5>
+  <ul>
+    <li style="color:rgb(54, 120, 218);text-decoration: underline;cursor: pointer;" *ngFor="let blog of blog; let i = index" [class.active]="i == currentIndex"
+      (click)="setActiveBlog(blog, i)">
+      {{ blog.title }}
+    </li>
+  </ul>
+
+  <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllBlog()">
+        Remove All
+      </button> -->
+
+
+  <app-blog-details [viewMode]="true" [currentBlog]="currentBlog"></app-blog-details>
+
+</div>

@@ -1,0 +1,107 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentBlog.id">
+      <h4>Blog</h4>
+      <div>
+        <label><strong>Title:</strong></label> {{ currentBlog.title }}
+      </div>
+      <div>
+        <label><strong>Post:</strong></label>
+        {{ currentBlog.post }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentBlog.published ? "Published" : "Pending" }}
+      </div>
+  
+      <a
+        class="badge badge-warning"
+        routerLink="/blog/{{ currentBlog.id }}"
+      >
+        Edit
+      </a>
+    </div>
+  
+    <div *ngIf="!currentBlog">
+      <br />
+      <p>Please click on a Blog...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentBlog.id" class="edit-form">
+      <h4>Blog</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentBlog.title"
+            name="title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="post">Post</label>
+          <input
+            type="text"
+            class="form-control"
+            id="post"
+            [(ngModel)]="currentBlog.post"
+            name="post"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="tag">Tag</label>
+
+  
+         <select class="form-control" #teams (change)="onSelected(teams.value)">
+            <option>{{currentBlog.tag}}</option>
+            <option>Phillies</option>
+            <option>Eagles</option>
+            <option>Sixers</option>
+          </select>
+  
+        </div>
+  
+        <div class="form-group">
+          <label><strong>Status:</strong></label>
+          {{ currentBlog.published ? "Published" : "Pending" }}
+        </div>
+      </form>
+  
+      <button
+        class="badge badge-primary mr-2"
+        *ngIf="currentBlog.published"
+        (click)="updatePublished(false)"
+      >
+        UnPublish
+      </button>
+      <button
+        *ngIf="!currentBlog.published"
+        class="badge badge-primary mr-2"
+        (click)="updatePublished(true)"
+      >
+        Publish
+      </button>
+  
+      <button class="badge badge-danger mr-2" (click)="deleteBlog()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateBlog()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentBlog.id">
+      <br />
+      <p>Cannot access this Blog...</p>
+    </div>
+  </ng-template>
