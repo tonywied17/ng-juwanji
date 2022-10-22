@@ -10,29 +10,29 @@
         <mat-icon style="font-size:2rem;height:30px;width:35px;">4k</mat-icon> Philly Sports
       </h1>
       <span class="menu-spacer"></span>
-      <div class="top-nav-btns">
-        <a mat-button [routerLink]="'/home'" style="margin-right:0.3em;" (click)="mainTheme()">
-          <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">home</mat-icon> Home
-        </a>
-
-        <a *ngIf="showAdminBoard" mat-button [routerLink]="'/blog'" style="margin-right:0.3em;">
-          <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">note_add</mat-icon>Manage Articles
-        </a>
-
-        <a *ngIf="isLoggedIn" mat-button [routerLink]="'/user'" style="margin-right:0.3em;">
-          <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">question_answer</mat-icon>Articles
-        </a>
-
-
-        <!-- <a mat-button href="molexee.apk" style="margin-right:0.3em;">
-          <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">android</mat-icon> Android App
-        </a> -->
-      </div>
+      
     </mat-toolbar-row>
 
     <mat-toolbar-row class="info">
-      <mat-icon style="font-size:1rem;margin-bottom:-8px;margin-right:-2px;">info</mat-icon> <span
-        style="font-size: 12px;">PHILADEPHIA SPORT NEWS</span>
+      
+        <div class="top-nav-btns">
+          <a mat-button [routerLink]="'/home'" style="margin-right:0.3em;" (click)="mainTheme()">
+            <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">home</mat-icon> Home
+          </a>
+  
+          <a *ngIf="showAdminBoard" mat-button [routerLink]="'/blog'" style="margin-right:0.3em;">
+            <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">note_add</mat-icon>Manage Articles
+          </a>
+  
+          <a *ngIf="isLoggedIn" mat-button [routerLink]="'/user'" style="margin-right:0.3em;">
+            <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">question_answer</mat-icon>Articles
+          </a>
+  
+  
+          <!-- <a mat-button href="molexee.apk" style="margin-right:0.3em;">
+            <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">android</mat-icon> Android App
+          </a> -->
+        </div>
     </mat-toolbar-row>
 
   </mat-toolbar>
