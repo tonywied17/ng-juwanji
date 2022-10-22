@@ -5,7 +5,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 @Component({
   selector: 'app-board-moderator',
   templateUrl: './board-moderator.component.html',
-  styleUrls: ['./board-moderator.component.css']
+  styleUrls: ['./board-moderator.component.scss']
 })
 export class BoardModeratorComponent implements OnInit {
   content?: string;

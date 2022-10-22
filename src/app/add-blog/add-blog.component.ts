@@ -7,7 +7,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 @Component({
   selector: 'app-add-blog',
   templateUrl: './add-blog.component.html',
-  styleUrls: ['./add-blog.component.css']
+  styleUrls: ['./add-blog.component.scss']
 })
 
 

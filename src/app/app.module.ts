@@ -19,6 +19,9 @@ import { AddBlogComponent } from './add-blog/add-blog.component';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MaterialModule} from './material-module'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,9 @@ import { BlogListComponent } from './blog-list/blog-list.component';
     BlogListComponent
   ],
   imports: [
+    MaterialModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule

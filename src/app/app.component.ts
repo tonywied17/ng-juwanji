@@ -1,17 +1,23 @@
-import { Component } from '@angular/core';
+import { JsonPipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { TokenStorageService } from './_services/token-storage.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  bodyTag = document.body;
+
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
+ 
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
@@ -27,6 +33,22 @@ export class AppComponent {
 
       this.username = user.username;
     }
+    
+  }
+
+  theme(theme: any) {
+    if (theme) {
+      this.bodyTag.classList.remove(this.bodyTag.classList.toString())
+      this.bodyTag.classList.add("theme-" + theme);
+    } else {
+      this.bodyTag.classList.remove(this.bodyTag.classList.toString())
+      this.bodyTag.classList.add("main");
+    }
+  }
+  
+  mainTheme() {
+    this.bodyTag.classList.remove(this.bodyTag.classList.toString())
+    this.bodyTag.classList.add("main");
   }
 
   logout(): void {

@@ -8,7 +8,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 @Component({
   selector: 'app-blog-details',
   templateUrl: './blog-details.component.html',
-  styleUrls: ['./blog-details.component.css']
+  styleUrls: ['./blog-details.component.scss']
 })
 export class BlogDetailsComponent implements OnInit {
 

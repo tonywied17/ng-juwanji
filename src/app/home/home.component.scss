@@ -1,0 +1,71 @@
+.news-card {
+    width: auto;
+    cursor: pointer;
+    transition: all .2s ease;
+    animation: load-news 200ms ease 0s 1 normal forwards;
+    margin: 10px;
+    
+  }
+
+  .news-card:hover{
+    filter: drop-shadow(5px 2px 4px rgba(0, 0, 0, 0.41));
+  }
+
+  .news-card:active{
+    filter: brightness(130%);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  
+  .news-header-image {
+    background-image: url('https://molex.cloud/2022/October/12/_9Wm/download.png');
+    background-size: cover;
+
+  }
+/*
+  .column {
+    float: left;
+    padding: 0;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .column {
+      width: 100%;
+    }
+  }
+
+*/
+  .row {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 5px;
+  }
+
+  .column {
+    padding: 5px;
+    user-select:none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .row {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-row-gap: 5px;
+    }
+  }
+
+  @keyframes load-news {
+    0% {
+      transform: scale(0);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }

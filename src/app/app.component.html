@@ -1,41 +1,94 @@
-<div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">juwanji_dev</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
-      </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/blog" class="nav-link" routerLink="blog">Manage Blogs</a>
-      </li>
-      <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Moderator</a>
-      </li>
-      <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Member Auth</a>
-      </li>
-    </ul>
 
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
-      </li>
-    </ul>
 
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">Log Out</a>
-      </li>
-    </ul>
-  </nav>
+<div id="main-container">
+  <mat-toolbar color="primary" class="nav">
+    <mat-toolbar-row class="header">
+      <button mat-icon-button style="margin-right:1.2em;">
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      <h1 style="margin-right:1em;font-size:2.5rem;">
+        <mat-icon style="font-size:2rem;height:30px;width:35px;">4k</mat-icon> Philly Sports
+      </h1>
+      <span class="menu-spacer"></span>
+      <div class="top-nav-btns">
+        <a mat-button [routerLink]="'/home'" style="margin-right:0.3em;" (click)="mainTheme()">
+          <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">home</mat-icon> Home
+        </a>
 
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
+        <a *ngIf="showAdminBoard" mat-button [routerLink]="'/blog'" style="margin-right:0.3em;">
+          <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">note_add</mat-icon>Manage Articles
+        </a>
+
+        <a *ngIf="isLoggedIn" mat-button [routerLink]="'/user'" style="margin-right:0.3em;">
+          <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">question_answer</mat-icon>Articles
+        </a>
+
+
+        <!-- <a mat-button href="molexee.apk" style="margin-right:0.3em;">
+          <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">android</mat-icon> Android App
+        </a> -->
+      </div>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row class="info">
+      <mat-icon style="font-size:1rem;margin-bottom:-8px;margin-right:-2px;">info</mat-icon> <span
+        style="font-size: 12px;">PHILADEPHIA SPORT NEWS</span>
+    </mat-toolbar-row>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container hasBackdrop="true">
+    <mat-sidenav #sidenav mode="push" class="side-nav">
+      <mat-nav-list>
+
+        <a mat-list-item [routerLink]="'/home'" (click)="mainTheme();sidenav.toggle()">
+          <mat-icon style="margin-right:0.5em;">home</mat-icon> Home
+        </a>
+        <a *ngIf="showAdminBoard" mat-list-item [routerLink]="'/blog'" (click)="sidenav.toggle()">
+          <mat-icon style="margin-right:0.5em;">note_add</mat-icon> Manage Articles
+        </a>
+        <a *ngIf="isLoggedIn" mat-list-item [routerLink]="'/user'" (click)="sidenav.toggle()">
+          <mat-icon style="margin-right:0.5em;">question_answer</mat-icon> Articles
+        </a>
+        <!-- <a mat-list-item href="molexee.apk" (click)="sidenav.toggle()">
+          <mat-icon style="margin-right:0.5em;">android</mat-icon> Android App
+        </a> -->
+        <mat-divider></mat-divider>
+
+        <a *ngIf="!isLoggedIn" mat-list-item [routerLink]="'/register'" (click)="sidenav.toggle()">
+          <mat-icon style="margin-right:0.5em;">person_add</mat-icon> Sign Up
+        </a>
+
+        <a *ngIf="!isLoggedIn" mat-list-item [routerLink]="'/login'" (click)="sidenav.toggle()">
+          <mat-icon style="margin-right:0.5em;">lock</mat-icon> Login
+        </a>
+
+        <a *ngIf="isLoggedIn" mat-list-item [routerLink]="'/profile'" (click)="sidenav.toggle()">
+          <mat-icon style="margin-right:0.5em;">person</mat-icon> {{ username }}
+        </a>
+
+        <mat-divider></mat-divider>
+
+        <a *ngIf="isLoggedIn" mat-list-item [routerLink]="'/profile'" (click)="logout();sidenav.toggle()">
+          <mat-icon style="margin-right:0.5em;">power_off</mat-icon> Logout
+        </a>
+
+        <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a>
+
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+      <div class="app-container">
+
+
+        <router-outlet></router-outlet>
+
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <footer>&copy; NFL, &copy; MLB, &copy; FOX, &copy; CBS, &copy; MY DAD, &copy; NBC, &copy; COMCAST SPORTSNET</footer>
 </div>
+
+
+<div class="top"></div>

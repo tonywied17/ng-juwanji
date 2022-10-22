@@ -6,7 +6,7 @@ import { FileUploadService } from 'src/app/_services/file-upload.service';
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
-  styleUrls: ['./file-upload.component.css']
+  styleUrls: ['./file-upload.component.scss']
 })
 export class FileUploadComponent implements OnInit {
   selectedFiles?: FileList;
