@@ -28,6 +28,7 @@ export class BlogListComponent implements OnInit {
 
   ngOnInit(): void {
     this.retrieveBlog();
+    this.userService.pageTitle = "Manage Articles"
 
     this.isLoggedIn = !!this.token.getToken();
     this.currentUser = this.token.getUser();
@@ -39,6 +40,7 @@ export class BlogListComponent implements OnInit {
       this.showBlogPage = this.roles.includes('ROLE_ADMIN') ? true : false;
     }
   }
+
 
   retrieveBlog(): void {
     this.blogService.getAll()

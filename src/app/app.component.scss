@@ -1,12 +1,16 @@
 .side-nav {
   width: 300px;
+  
 }
-
+.side-btns{
+  color:rgba(255, 255, 255, 0.918) !important;
+}
 .nav {
   user-select: none;
 }
 .header{
-  height:150px;
+  height:auto;
+  padding:1em;
 }
 #main-container {
   margin-top: 2.5em;
@@ -23,8 +27,26 @@
   .top-nav-btns {
     display: none;
   }
+
+  .logo{
+    font-size:2.20rem !important;
+  }
+  .top{
+    height: 150px !important;
+  }
+
+  .sub-header{
+    margin: auto !important;
+    text-align: center;
+  }
 }
 
+
+
+
+.top-nav-btns{
+color:rgba(255, 255, 255, 0.918);
+}
 .top{
   position: absolute;
   background-color: #004c54;
@@ -70,4 +92,25 @@
   width: 50%;
   margin: 1em;
   align-self: center;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.logo{
+  font-size:4.20rem;
+  color: rgba(255, 255, 255, 0.911);
+  font-weight: 900;
+}
+
+.sub-header{
+  color: rgba(255, 255, 255, 0.911);
+  font-size: smaller;
+  font-style: italic;font-weight: 400;
+  margin-left:80px;
+  margin-top:-60px;
 }

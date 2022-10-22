@@ -1,26 +1,28 @@
 <div *ngIf="showBlogPage">
+
 <div *ngIf="viewMode; else editable">
-    <div *ngIf="currentBlog.id">
-      <h4>Blog</h4>
-      <div>
-        <label><strong>Title:</strong></label> {{ currentBlog.title }}
-      </div>
-      <div>
-        <label><strong>Post:</strong></label>
+
+    <mat-card *ngIf="currentBlog.id">
+
+      <h2>{{ currentBlog.title }}</h2>
+    
+      <h3>Content:</h3>
         {{ currentBlog.post }}
-      </div>
-      <div>
-        <label><strong>Status:</strong></label>
-        {{ currentBlog.published ? "Published" : "Pending" }}
-      </div>
+
+
+
+       <p>
+        <b>{{ currentBlog.published ? "Published" : "Pending" }}</b> 
+       </p>
+
   
       <a
         class="badge badge-warning"
         routerLink="/blog/{{ currentBlog.id }}"
       >
-        Edit
+        Edit Post
       </a>
-    </div>
+    </mat-card>
   
     <div *ngIf="!currentBlog">
       <br />

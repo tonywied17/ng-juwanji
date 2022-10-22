@@ -2,6 +2,7 @@ import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TokenStorageService } from './_services/token-storage.service';
+import { UserService } from './_services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -17,11 +18,16 @@ export class AppComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
+
+  titlePage: any;
  
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(private tokenStorageService: TokenStorageService, private userService: UserService, ) { }
 
   ngOnInit(): void {
+
+    this.getTitle();
+
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
@@ -33,6 +39,14 @@ export class AppComponent implements OnInit {
 
       this.username = user.username;
     }
+    
+  }
+
+  getTitle(): void {
+
+    this.titlePage = this.userService.pageTitle;
+
+    return this.titlePage;
     
   }
 

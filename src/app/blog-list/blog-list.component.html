@@ -1,6 +1,16 @@
+
+
 <div class="list-container" *ngIf="showBlogPage">
   <a routerLink="../add" class="post-btn">Post Blog</a>
   <div class="search-container">
+
+
+    <mat-form-field style="width: 100% !important" appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Search by title" [(ngModel)]="title" (keydown.enter)="searchTitle()">
+    </mat-form-field>
+
+
 
     <input type="text" placeholder="Search by title" [(ngModel)]="title" class="search-box" />
     <a (click)="searchTitle()" class="search-btn">

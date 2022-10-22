@@ -3,19 +3,28 @@
 <div id="main-container">
   <mat-toolbar color="primary" class="nav">
     <mat-toolbar-row class="header">
-      <button mat-icon-button style="margin-right:1.2em;">
+      <button mat-fab color="accent" color="" style="margin-right:1.2em;">
         <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
       </button>
-      <h1 style="margin-right:1em;font-size:2.5rem;">
-        <mat-icon style="font-size:2rem;height:30px;width:35px;">4k</mat-icon> Philly Sports
-      </h1>
+
+      <div class="logo">Philly Sports</div>
+
       <span class="menu-spacer"></span>
-      
     </mat-toolbar-row>
 
-    <mat-toolbar-row class="info">
+    <mat-toolbar-row>
+      <div class="sub-header">Philadelphia Sports News, Media, and Podcast</div>
+    </mat-toolbar-row>
+
+
+
+    
+
+    <mat-toolbar-row class="info top-nav-btns">
       
-        <div class="top-nav-btns">
+
+
+          <span>
           <a mat-button [routerLink]="'/home'" style="margin-right:0.3em;" (click)="mainTheme()">
             <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">home</mat-icon> Home
           </a>
@@ -27,27 +36,68 @@
           <a *ngIf="isLoggedIn" mat-button [routerLink]="'/user'" style="margin-right:0.3em;">
             <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">question_answer</mat-icon>Articles
           </a>
-  
-  
+        </span>
+
+          <span class="example-spacer"></span>
+
+
+          <button *ngIf="!isLoggedIn" mat-raised-button color="accent" [matMenuTriggerFor]="beforeMenu">
+             Hello, Sign in!
+          </button>
+
+          <button *ngIf="isLoggedIn" mat-raised-button color="accent" [matMenuTriggerFor]="beforeMenu">
+            {{ username }}
+          </button>
+
+            <mat-menu #beforeMenu="matMenu" xPosition="before" class="expand-menu">
+
+              <button *ngIf="isLoggedIn" mat-menu-item [routerLink]="'/profile'" class="white-override">
+                <mat-icon class="white-override">person</mat-icon>
+                <span>User Profile</span>
+              </button>
+              <mat-divider></mat-divider>
+              <button *ngIf="isLoggedIn" mat-menu-item [routerLink]="'/home'" (click)="logout()" class="white-override">
+                <mat-icon class="white-override">power_settings_new</mat-icon>
+                <span>Logout</span>
+              </button>
+
+
+              <button *ngIf="!isLoggedIn" mat-menu-item [routerLink]="'/register'" class="white-override">
+                <mat-icon class="white-override">person_add</mat-icon>
+                <span>Sign Up</span>
+              </button>
+              <mat-divider></mat-divider>
+              <button *ngIf="!isLoggedIn" mat-menu-item [routerLink]="'/login'" class="white-override">
+                <mat-icon class="white-override">lock</mat-icon>
+                <span>Login</span>
+              </button>
+
+          </mat-menu>
+
+
+
           <!-- <a mat-button href="molexee.apk" style="margin-right:0.3em;">
             <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">android</mat-icon> Android App
           </a> -->
-        </div>
+
+          
+
     </mat-toolbar-row>
 
   </mat-toolbar>
 
   <mat-sidenav-container hasBackdrop="true">
     <mat-sidenav #sidenav mode="push" class="side-nav">
+
       <mat-nav-list>
 
-        <a mat-list-item [routerLink]="'/home'" (click)="mainTheme();sidenav.toggle()">
+        <a class="side-btns" mat-list-item [routerLink]="'/home'" (click)="mainTheme();sidenav.toggle()">
           <mat-icon style="margin-right:0.5em;">home</mat-icon> Home
         </a>
-        <a *ngIf="showAdminBoard" mat-list-item [routerLink]="'/blog'" (click)="sidenav.toggle()">
+        <a class="side-btns" *ngIf="showAdminBoard" mat-list-item [routerLink]="'/blog'" (click)="sidenav.toggle()">
           <mat-icon style="margin-right:0.5em;">note_add</mat-icon> Manage Articles
         </a>
-        <a *ngIf="isLoggedIn" mat-list-item [routerLink]="'/user'" (click)="sidenav.toggle()">
+        <a class="side-btns" *ngIf="isLoggedIn" mat-list-item [routerLink]="'/user'" (click)="sidenav.toggle()">
           <mat-icon style="margin-right:0.5em;">question_answer</mat-icon> Articles
         </a>
         <!-- <a mat-list-item href="molexee.apk" (click)="sidenav.toggle()">
@@ -55,25 +105,25 @@
         </a> -->
         <mat-divider></mat-divider>
 
-        <a *ngIf="!isLoggedIn" mat-list-item [routerLink]="'/register'" (click)="sidenav.toggle()">
+        <a class="side-btns" *ngIf="!isLoggedIn" mat-list-item [routerLink]="'/register'" (click)="sidenav.toggle()">
           <mat-icon style="margin-right:0.5em;">person_add</mat-icon> Sign Up
         </a>
 
-        <a *ngIf="!isLoggedIn" mat-list-item [routerLink]="'/login'" (click)="sidenav.toggle()">
+        <a class="side-btns" *ngIf="!isLoggedIn" mat-list-item [routerLink]="'/login'" (click)="sidenav.toggle()">
           <mat-icon style="margin-right:0.5em;">lock</mat-icon> Login
         </a>
 
-        <a *ngIf="isLoggedIn" mat-list-item [routerLink]="'/profile'" (click)="sidenav.toggle()">
+        <a class="side-btns" *ngIf="isLoggedIn" mat-list-item [routerLink]="'/profile'" (click)="sidenav.toggle()">
           <mat-icon style="margin-right:0.5em;">person</mat-icon> {{ username }}
         </a>
 
         <mat-divider></mat-divider>
 
-        <a *ngIf="isLoggedIn" mat-list-item [routerLink]="'/profile'" (click)="logout();sidenav.toggle()">
+        <a class="side-btns" *ngIf="isLoggedIn" mat-list-item [routerLink]="'/home'" (click)="logout();sidenav.toggle()">
           <mat-icon style="margin-right:0.5em;">power_off</mat-icon> Logout
         </a>
 
-        <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a>
+        <a class="side-btns" mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a>
 
       </mat-nav-list>
     </mat-sidenav>

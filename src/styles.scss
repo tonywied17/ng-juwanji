@@ -59,7 +59,7 @@ $mat-light-theme-foreground: (
 );
 
 // Dark Theme text
-$light-text: #ffffff;
+$light-text: #1d1d1dd3;
 $light-primary-text: $light-text;
 $light-accent-text: rgba($light-primary-text, 0.7);
 $light-disabled-text: rgba($light-primary-text, 0.5);
@@ -362,8 +362,9 @@ footer {
   margin-right: unset !important;
   margin:0 !important;
   overflow: auto;
-  background: #7e8183c7;
+  background: rgba(199, 199, 199, 0.432);;
   box-shadow: 0px 1px 2px 0px rgba(204, 204, 204, 0.28) inset;
+  backdrop-filter: blur(3px);
 }
 
 .nav{
@@ -452,4 +453,48 @@ mat-chip {
 .mat-drawer-container{
   background: unset !important;
   
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex{
+  background: rgb(70 71 73);
+  color: rgba(255, 255, 255, 0.938) !important;
+}
+
+mat-card, mat-card-subtitle{
+  color: rgba(255, 255, 255, 0.822) !important;
+}
+
+.mat-form-field-empty.mat-form-field-label{
+  color: rgba(255, 255, 255, 0.938) !important;
+}
+
+.mat-form-field-ripple {
+  background-color: rgba(255, 255, 255, 0.938) !important;
+}
+
+.mat-input-element {
+  caret-color: rgba(255, 255, 255, 0.938) !important;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.623) !important;
+}
+
+.page-header{
+  font-weight: 900 !important;
+    color: #1d1d1dd3;
+    font-size: 38px;
+    font-style: normal;
+    text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474, -3px 6px 1px #787777;
+    filter: drop-shadow(0x 0px 150px #000);
+  height: 50px;
+}
+
+.mat-fab{
+  background-color: #474747e3 !important;
+  color: rgba(255, 255, 255, 0.897) !important;
+}
+
+.white-override{
+  color: rgba(255, 255, 255, 0.911) !important;
 }

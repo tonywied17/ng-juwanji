@@ -36,7 +36,7 @@ export class BlogDetailsComponent implements OnInit {
   private userService: UserService, 
   private token: TokenStorageService
   ) { }
-
+  panelOpenState = false;
   ngOnInit(): void {
     this.isLoggedIn = !!this.token.getToken();
     this.currentUser = this.token.getUser();

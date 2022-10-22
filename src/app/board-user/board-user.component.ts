@@ -28,6 +28,7 @@ export class BoardUserComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.userService.pageTitle = "Latest Articles"
     this.isLoggedIn = !!this.token.getToken();
     this.currentUser = this.token.getUser();
 
