@@ -1,5 +1,7 @@
-<div class="container" *ngIf="showUserFeed">
-  <header class="jumbotron">
+
+<div class="content" *ngIf="showUserFeed">
+
+
     <h1>Welcome, {{currentUser.username}}!</h1>
     <p>We are glad you decided to register an account with us today. Please feel free to upload files to share with other users.</p>
 
@@ -9,11 +11,24 @@
     <a class="post-btn" (click)="getBlogFromTag('Sixers')">Sixers</a>
 
     <div *ngFor="let blog of Blogs; index as i;" style="margin-top:5em;">
+
+
       <div *ngIf="blog.published">
-      <h4>{{blog.title}}</h4>
-      <p>{{blog.post}}</p>
+
+        <div style="border: 2px solid rgba(97, 97, 97, 0.788);padding:1.5em;border-radius:10px;margin-bottom: 2em;">
+          <h1 [innerHTML]="blog.title"></h1>
+          <p [innerHTML]="blog.description"></p>
+          <p class="tag {{blog.tag}}" [innerHTML]="blog.tag"></p>
+          <a *ngIf="showAdminControls" href="../blog/{{blog.id}}" class="nav-link" routerLink="../blog/{{blog.id}}">Edit Post</a>
+    </div>
+
+      <!-- <h4>{{blog.title}}</h4>
+      <p [innerHTML]="blog.post"></p>
       <hr><small>{{blog.tag}} - <i>Published by {{blog.author}}</i> <a *ngIf="showAdminControls" href="../blog/{{blog.id}}" class="nav-link" routerLink="../blog/{{blog.id}}">Edit Post</a></small>
+     -->
     </div>
     </div>
-  </header>
+
+
+
 </div>

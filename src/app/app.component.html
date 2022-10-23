@@ -4,7 +4,7 @@
   <mat-toolbar color="primary" class="nav">
     <mat-toolbar-row class="header">
       <button mat-fab color="accent" color="" style="margin-right:1.2em;">
-        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        <mat-icon (mousedown)="sidenav.toggle();">menu</mat-icon>
       </button>
 
       <div class="logo">Philly Sports</div>
@@ -24,7 +24,7 @@
       
 
 
-          <span>
+          <span *ngIf="!sidenav.opened">
           <a mat-button [routerLink]="'/home'" style="margin-right:0.3em;" (click)="mainTheme()">
             <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">home</mat-icon> Home
           </a>
@@ -86,8 +86,8 @@
 
   </mat-toolbar>
 
-  <mat-sidenav-container hasBackdrop="true">
-    <mat-sidenav #sidenav mode="push" class="side-nav">
+  <mat-sidenav-container hasBackdrop="false">
+    <mat-sidenav #sidenav mode="side" class="side-nav">
 
       <mat-nav-list>
 
@@ -137,7 +137,7 @@
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
-  <footer>&copy; NFL, &copy; MLB, &copy; FOX, &copy; CBS, &copy; MY DAD, &copy; NBC, &copy; COMCAST SPORTSNET</footer>
+  <footer>&copy; Some Philly Sports Website, 2022</footer>
 </div>
 
 

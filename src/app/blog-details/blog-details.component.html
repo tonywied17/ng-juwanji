@@ -31,8 +31,16 @@
   </div>
   
   <ng-template #editable>
+    
     <div *ngIf="currentBlog.id" class="edit-form">
-      <h4>Blog</h4>
+      Post Preview
+<div style="border: 2px solid rgba(97, 97, 97, 0.788);padding:1.5em;border-radius:10px;margin-bottom: 2em;">
+      <h1 [innerHTML]="currentBlog.title"></h1>
+      <p style="font-style: italic;font-size: 0.9rem;font-weight: 300;margin-top:-5px;">{{currentBlog.description}}<br />Published by, {{currentBlog.author}}</p>
+      <p [innerHTML]="currentBlog.post"></p>
+      <p style="background-color:rgba(104, 0, 21, 0.925);padding:5px;border-radius: 5px;width:fit-content;color:aliceblue;font-size:small;" [innerHTML]="currentBlog.tag"></p>
+</div>
+
       <form>
         <div class="form-group">
           <label for="title">Title</label>
@@ -44,16 +52,33 @@
             name="title"
           />
         </div>
+
         <div class="form-group">
-          <label for="post">Post</label>
+          <label for="image">Image</label>
           <input
             type="text"
             class="form-control"
-            id="post"
-            [(ngModel)]="currentBlog.post"
-            name="post"
+            id="image"
+            [(ngModel)]="currentBlog.image"
+            name="image"
           />
         </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            [(ngModel)]="currentBlog.description"
+            name="description"
+          />
+        </div>
+
+
+      <textarea id="post" name="post" rows="4" cols="50" [(ngModel)]="currentBlog.post">
+  
+      </textarea>
 
         <div class="form-group">
           <label for="tag">Tag</label>
@@ -110,3 +135,4 @@
   </ng-template>
 
 </div>
+

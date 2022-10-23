@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
-
   titlePage: any;
  
 
@@ -49,6 +48,9 @@ export class AppComponent implements OnInit {
     return this.titlePage;
     
   }
+
+  
+  
 
   theme(theme: any) {
     if (theme) {

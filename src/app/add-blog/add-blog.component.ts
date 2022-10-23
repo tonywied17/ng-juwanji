@@ -23,6 +23,8 @@ export class AddBlogComponent implements OnInit {
 
   blog: Blog = {
     title: '',
+    image: '',
+    description: '',
     post: '',
     tag: '',
     author: '',
@@ -55,6 +57,8 @@ export class AddBlogComponent implements OnInit {
   saveBlog(): void {
     const data = {
       title: this.blog.title,
+      image: this.blog.image,
+      description: this.blog.description,
       post: this.blog.post,
       tag: this.selectedTeam,
       author: this.currentUser.username,
@@ -76,7 +80,10 @@ export class AddBlogComponent implements OnInit {
     this.submitted = false;
     this.blog = {
       title: '',
+      image: '',
+      description: '',
       post: '',
+      tag: '',
       author: '',
       published: false
     };

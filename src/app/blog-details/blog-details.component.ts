@@ -5,13 +5,14 @@ import { Blog } from 'src/app/_models/blog.model';
 import { UserService } from '../_services/user.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 
+
 @Component({
   selector: 'app-blog-details',
   templateUrl: './blog-details.component.html',
   styleUrls: ['./blog-details.component.scss']
 })
 export class BlogDetailsComponent implements OnInit {
-
+  data:any;
   currentUser: any;
   isLoggedIn = false;
   showBlogPage = false;
@@ -21,6 +22,8 @@ export class BlogDetailsComponent implements OnInit {
 
   @Input() currentBlog: Blog = {
     title: '',
+    image: '',
+    description: '',
     post: '',
     tag: '',
     author: '',
@@ -73,6 +76,8 @@ export class BlogDetailsComponent implements OnInit {
   updatePublished(status: boolean): void {
     const data = {
       title: this.currentBlog.title,
+      image: this.currentBlog.image,
+      description: this.currentBlog.description,
       post: this.currentBlog.post,
       tag: this.selectedTeam,
       author: this.currentUser.username,
