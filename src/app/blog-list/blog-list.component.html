@@ -1,28 +1,20 @@
-
-
 <div class="list-container" *ngIf="showBlogPage">
-  <a routerLink="../add" class="post-btn">Post Blog</a>
-  <div class="search-container">
+  <h2><a routerLink="../add" class="post-btn">Create an Article</a></h2>
 
+  <h2>Filter Articles</h2>
+  <div class="search-container">
 
     <mat-form-field style="width: 100% !important" appearance="fill">
       <mat-label>Search</mat-label>
       <input matInput placeholder="Search by title" [(ngModel)]="title" (keydown.enter)="searchTitle()">
     </mat-form-field>
 
-
-
-    <input type="text" placeholder="Search by title" [(ngModel)]="title" class="search-box" />
-    <a (click)="searchTitle()" class="search-btn">
-      Search
-    </a>
-
   </div>
 
-<h5 style="margin:1em;margin-top:2em;">Edit Blogs:</h5>
+  <h2>Articles List</h2>
   <ul>
-    <li style="color:rgb(54, 120, 218);text-decoration: underline;cursor: pointer;" *ngFor="let blog of blog; let i = index" [class.active]="i == currentIndex"
-      (click)="setActiveBlog(blog, i)">
+    <li style="color:rgb(230, 230, 230);text-decoration: underline;cursor: pointer;"
+      *ngFor="let blog of blog; let i = index" [class.active]="i == currentIndex" (click)="setActiveBlog(blog, i)">
       {{ blog.title }}
     </li>
   </ul>
@@ -34,4 +26,6 @@
 
   <app-blog-details [viewMode]="true" [currentBlog]="currentBlog"></app-blog-details>
 
+  <h2>Upload Files</h2>
+  <app-file-upload></app-file-upload>
 </div>

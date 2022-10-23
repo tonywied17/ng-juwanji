@@ -375,7 +375,6 @@ footer {
   overflow: auto;
   background: rgba(199, 199, 199, 0.432);;
   box-shadow: 0px 1px 2px 0px rgba(204, 204, 204, 0.28) inset;
-  backdrop-filter: blur(3px);
   overflow-x: none;
 }
 
@@ -563,4 +562,8 @@ md-sidenav.md-closed-add,
 md-sidenav.md-closed-remove {
   -webkit-transition: all .4s cubic-bezier(0.25, .8, .25, 1) !important;
   transition: all .4s cubic-bezier(0.25, .8, .25, 1) !important;
+}
+
+.mat-divider {
+  border-top-color: #ffffff1f !important;
 }

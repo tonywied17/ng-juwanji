@@ -30,12 +30,9 @@
 							"src/assets"
 						],
 						"styles": [
-							"src/styles.scss",
-							"src/assets/richtexteditor/rte_theme_default.css"
+							"src/styles.scss"
 						],
 						"scripts": [
-							"src/assets/richtexteditor/rte.js",
-							"src/assets/richtexteditor/plugins/all_plugins.js"
 						]
 					},
 					"configurations": {
@@ -43,13 +40,13 @@
 							"budgets": [
 								{
 									"type": "initial",
-									"maximumWarning": "500kb",
-									"maximumError": "1mb"
+									"maximumWarning": "100mb",
+									"maximumError": "100mb"
 								},
 								{
 									"type": "anyComponentStyle",
-									"maximumWarning": "2kb",
-									"maximumError": "4kb"
+									"maximumWarning": "100mb",
+									"maximumError": "100mb"
 								}
 							],
 							"fileReplacements": [

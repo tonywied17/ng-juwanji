@@ -3,9 +3,6 @@
 <div id="main-container">
   <mat-toolbar color="primary" class="nav">
     <mat-toolbar-row class="header">
-      <button mat-fab color="accent" color="" style="margin-right:1.2em;">
-        <mat-icon (mousedown)="sidenav.toggle();">menu</mat-icon>
-      </button>
 
       <div class="logo">Philly Sports</div>
 
@@ -20,11 +17,13 @@
 
     
 
-    <mat-toolbar-row class="info top-nav-btns">
+    <mat-toolbar-row class="info">
       
+      <button (mousedown)="sidenav.toggle();" mat-icon-button color="accent">
+        <mat-icon>menu</mat-icon>
+      </button>
 
-
-          <span *ngIf="!sidenav.opened">
+          <span *ngIf="!sidenav.opened" class="top-nav-btns">
           <a mat-button [routerLink]="'/home'" style="margin-right:0.3em;" (click)="mainTheme()">
             <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">home</mat-icon> Home
           </a>
@@ -33,7 +32,7 @@
             <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">note_add</mat-icon>Manage Articles
           </a>
   
-          <a *ngIf="isLoggedIn" mat-button [routerLink]="'/user'" style="margin-right:0.3em;">
+          <a mat-button [routerLink]="'/user'" style="margin-right:0.3em;">
             <mat-icon style="margin-right: 2px;font-size:1.1rem;margin-bottom: -6px;">question_answer</mat-icon>Articles
           </a>
         </span>
@@ -51,27 +50,29 @@
 
             <mat-menu #beforeMenu="matMenu" xPosition="before" class="expand-menu">
 
-              <button *ngIf="isLoggedIn" mat-menu-item [routerLink]="'/profile'" class="white-override">
+              <span *ngIf="isLoggedIn">
+              <button mat-menu-item [routerLink]="'/profile'" class="white-override">
                 <mat-icon class="white-override">person</mat-icon>
                 <span>User Profile</span>
               </button>
               <mat-divider></mat-divider>
-              <button *ngIf="isLoggedIn" mat-menu-item [routerLink]="'/home'" (click)="logout()" class="white-override">
+              <button mat-menu-item [routerLink]="'/home'" (click)="logout()" class="white-override">
                 <mat-icon class="white-override">power_settings_new</mat-icon>
                 <span>Logout</span>
               </button>
+            </span>
 
-
-              <button *ngIf="!isLoggedIn" mat-menu-item [routerLink]="'/register'" class="white-override">
+            <span *ngIf="!isLoggedIn">
+              <button mat-menu-item [routerLink]="'/register'" class="white-override">
                 <mat-icon class="white-override">person_add</mat-icon>
                 <span>Sign Up</span>
               </button>
               <mat-divider></mat-divider>
-              <button *ngIf="!isLoggedIn" mat-menu-item [routerLink]="'/login'" class="white-override">
+              <button mat-menu-item [routerLink]="'/login'" class="white-override">
                 <mat-icon class="white-override">lock</mat-icon>
                 <span>Login</span>
               </button>
-
+            </span>
           </mat-menu>
 
 
@@ -86,8 +87,8 @@
 
   </mat-toolbar>
 
-  <mat-sidenav-container hasBackdrop="false">
-    <mat-sidenav #sidenav mode="side" class="side-nav">
+  <mat-sidenav-container hasBackdrop="true">
+    <mat-sidenav #sidenav mode="over" class="side-nav">
 
       <mat-nav-list>
 
@@ -97,7 +98,7 @@
         <a class="side-btns" *ngIf="showAdminBoard" mat-list-item [routerLink]="'/blog'" (click)="sidenav.toggle()">
           <mat-icon style="margin-right:0.5em;">note_add</mat-icon> Manage Articles
         </a>
-        <a class="side-btns" *ngIf="isLoggedIn" mat-list-item [routerLink]="'/user'" (click)="sidenav.toggle()">
+        <a class="side-btns" mat-list-item [routerLink]="'/user'" (click)="sidenav.toggle()">
           <mat-icon style="margin-right:0.5em;">question_answer</mat-icon> Articles
         </a>
         <!-- <a mat-list-item href="molexee.apk" (click)="sidenav.toggle()">
