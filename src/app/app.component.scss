@@ -6,6 +6,7 @@
   color:rgba(255, 255, 255, 0.918) !important;
 }
 .nav {
+  margin-top: -0.8em;
   user-select: none;
 }
 .header{
@@ -13,15 +14,15 @@
   padding:1em;
 }
 #main-container {
-  margin-top: 2.5em;
-  margin-left: 8em;
-  margin-right: 8em;
-
+  margin: auto;
+  margin-top: 2em;
+  width:85vw;
 }
 
 @media screen and (max-width: 900px) {
   #main-container {
-    margin: 0;
+    margin-top:0;
+    width: 100vw;
   }
 
   .top-nav-btns {
@@ -39,6 +40,12 @@
     margin: auto !important;
     text-align: center;
   }
+  .mobile-hide{
+    display:none !important;
+  }
+
+
+  
 }
 
 
@@ -103,7 +110,7 @@ color:rgba(255, 255, 255, 0.918);
 }
 
 .logo{
-  font-size:4.20rem;
+  font-size:3.20rem;
   color: rgba(255, 255, 255, 0.911);
   font-weight: 900;
 }
@@ -112,6 +119,10 @@ color:rgba(255, 255, 255, 0.918);
   color: rgba(255, 255, 255, 0.911);
   font-size: smaller;
   font-style: italic;font-weight: 400;
-  margin-left:70px;
-  margin-top:-10px;
+  margin-left: 25px;
+  margin-top: -50px;
+}
+
+.header-inner{
+  margin-top: -1em;
 }

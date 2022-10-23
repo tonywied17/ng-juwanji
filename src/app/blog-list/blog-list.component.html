@@ -1,31 +1,37 @@
-<div class="list-container" *ngIf="showBlogPage">
-  <h2><a routerLink="../add" class="post-btn">Create an Article</a></h2>
+<header class="page">
+  <h1 class="page-title">Manage Articles</h1>
+  <div class="page-desc">This will be the page to list and manage all the articles.</div>
+</header>
 
-  <h2>Filter Articles</h2>
-  <div class="search-container">
+<div class="content">
+  <div *ngIf="showBlogPage">
+    <h2><a routerLink="../add" class="post-btn">Create an Article</a></h2>
+
+    <h2>Filter Articles</h2>
+
 
     <mat-form-field style="width: 100% !important" appearance="fill">
       <mat-label>Search</mat-label>
       <input matInput placeholder="Search by title" [(ngModel)]="title" (keydown.enter)="searchTitle()">
     </mat-form-field>
 
-  </div>
 
-  <h2>Articles List</h2>
-  <ul>
-    <li style="color:rgb(230, 230, 230);text-decoration: underline;cursor: pointer;"
-      *ngFor="let blog of blog; let i = index" [class.active]="i == currentIndex" (click)="setActiveBlog(blog, i)">
-      {{ blog.title }}
-    </li>
-  </ul>
+    <h2>Articles List</h2>
+    <ul>
+      <li style="color:rgb(107, 255, 78);text-decoration: underline;cursor: pointer;"
+        *ngFor="let blog of blog; let i = index" [class.active]="i == currentIndex" (click)="setActiveBlog(blog, i)">
+        {{ blog.title }}
+      </li>
+    </ul>
 
-  <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllBlog()">
+    <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllBlog()">
         Remove All
       </button> -->
 
 
-  <app-blog-details [viewMode]="true" [currentBlog]="currentBlog"></app-blog-details>
+    <app-blog-details [viewMode]="true" [currentBlog]="currentBlog"></app-blog-details>
 
-  <h2>Upload Files</h2>
-  <app-file-upload></app-file-upload>
+    <h2>Upload Files</h2>
+    <app-file-upload></app-file-upload>
+  </div>
 </div>

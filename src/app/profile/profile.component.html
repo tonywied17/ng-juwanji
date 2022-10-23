@@ -1,9 +1,11 @@
+<header class="page">
+  <h1 class="page-title">{{ currentUser.username }}'s Profile</h1>
+  <div class="page-desc">This will be the users profile page.</div>
+</header>
+
+
 <div class="content" *ngIf="currentUser; else loggedOut">
-  <header class="jumbotron">
-    <h1>
-      <strong>{{ currentUser.username }}'s</strong> Profile
-    </h1>
-  </header>
+
   <p>
     <strong>Token:</strong>
     {{ currentUser.accessToken.substring(0, 20) }} ...
