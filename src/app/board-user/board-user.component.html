@@ -1,8 +1,8 @@
-
+<!-- 
 <header class="page">
   <h1 class="page-title">Latest Articles</h1>
   <div class="page-desc">This will be the page to view the headlines/posts and sort by team and then hit read more.</div>
-</header>
+</header> -->
 
 <div class="content">
 
@@ -11,25 +11,21 @@
     <a class="post-btn" (click)="getBlogFromTag('Eagles')">Eagles</a>
     <a class="post-btn" (click)="getBlogFromTag('Sixers')">Sixers</a>
 
-    <div *ngFor="let blog of Blogs; index as i;" style="margin-top:5em;">
+<div *ngFor="let blog of Blogs; index as i;">
 
-
-      <div *ngIf="blog.published">
-
-        <div style="border: 2px solid rgba(97, 97, 97, 0.788);padding:1.5em;border-radius:10px;margin-bottom: 2em;">
-          <h1 [innerHTML]="blog.title"></h1>
-          <p [innerHTML]="blog.description"></p>
-          <p class="tag {{blog.tag}}" [innerHTML]="blog.tag"></p>
-          <a *ngIf="showAdminControls" href="../blog/{{blog.id}}" class="nav-link" routerLink="../blog/{{blog.id}}">Edit Post</a>
-    </div>
-
-      <!-- <h4>{{blog.title}}</h4>
-      <p [innerHTML]="blog.post"></p>
-      <hr><small>{{blog.tag}} - <i>Published by {{blog.author}}</i> <a *ngIf="showAdminControls" href="../blog/{{blog.id}}" class="nav-link" routerLink="../blog/{{blog.id}}">Edit Post</a></small>
-     -->
-    </div>
-    </div>
-
+    <mat-card *ngIf="blog.published" style="margin: 1em;">
+      <mat-card-title-group>
+      <mat-card-title [innerHTML]="blog.title"></mat-card-title>
+      <mat-card-subtitle style="font-weight:100;" [innerHTML]="blog.description"></mat-card-subtitle>
+      <img mat-card-sm-image [src]="getIcon(blog.tag)">
+    </mat-card-title-group>
+      <mat-card-actions>
+        <button routerLink="../blog/{{blog.id}}" *ngIf="showAdminControls" mat-button>Edit</button>
+        <button mat-button>Read More</button>
+      </mat-card-actions>
+    </mat-card>
+  
+  </div>
 
 
 </div>

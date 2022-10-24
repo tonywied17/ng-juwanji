@@ -1,13 +1,14 @@
+
+<div class="content">
+
+
 <div *ngIf="showBlogPage">
 
 <div *ngIf="viewMode; else editable">
 
     <mat-card *ngIf="currentBlog.id">
 
-      <h2>{{ currentBlog.title }}</h2>
-    
-      <h3>Content:</h3>
-        {{ currentBlog.post }}
+      <div [innerHTML]="currentBlog.post"></div>
 
 
 
@@ -18,10 +19,8 @@
   
       <a
         class="badge badge-warning"
-        routerLink="/blog/{{ currentBlog.id }}"
-      >
-        Edit Post
-      </a>
+        routerLink="/blog/{{ currentBlog.id }}">
+        Edit Post </a>
     </mat-card>
   
     <div *ngIf="!currentBlog">
@@ -136,3 +135,4 @@
 
 </div>
 
+</div>

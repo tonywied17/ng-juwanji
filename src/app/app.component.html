@@ -47,11 +47,11 @@
 
 
           <button *ngIf="!isLoggedIn" mat-raised-button color="accent" [matMenuTriggerFor]="beforeMenu">
-             Hello, Sign in!
+             Hello, Sign in! <i class="fa-solid fa-caret-down"></i>
           </button>
 
           <button *ngIf="isLoggedIn" mat-raised-button color="accent" [matMenuTriggerFor]="beforeMenu">
-            {{ username }}
+           Welcome, {{username}} <i class="fa-solid fa-caret-down"></i>
           </button>
 
             <mat-menu #beforeMenu="matMenu" xPosition="before" class="expand-menu">
@@ -159,5 +159,5 @@
   <footer>&copy; Some Philly Sports Website, 2022</footer>
 </div>
 
-
+<div class="bottom"></div>
 <div class="top"></div>

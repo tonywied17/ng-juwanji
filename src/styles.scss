@@ -59,7 +59,7 @@ $mat-light-theme-foreground: (
 );
 
 // Dark Theme text
-$light-text: #1d1d1dd3;
+$light-text: #ebe8e8f1;
 $light-primary-text: $light-text;
 $light-accent-text: rgba($light-primary-text, 0.7);
 $light-disabled-text: rgba($light-primary-text, 0.5);
@@ -149,18 +149,18 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  --primary-color: #004c54;
-  --primary-lighter-color: #b3c9cc;
-  --primary-darker-color: #00333a;
+  --primary-color: #242424;
+  --primary-lighter-color: #4d4d4d;
+  --primary-darker-color: #0f0f0f;
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
 }   
 $mat-primary: (
-  main: #004c54,
-  lighter: #b3c9cc,
-  darker: #00333a,
-  200: #004c54, // For slide toggle,
+  main: #242424,
+  lighter: #4d4d4d,
+  darker: #0f0f0f,
+  200: #242424, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -366,6 +366,7 @@ footer {
 }
 
 
+
 .app-container {
   max-height: calc(100vh - 320.2px);
   min-height: calc(100vh - 320.2px);
@@ -373,7 +374,7 @@ footer {
   margin-right: unset !important;
   margin:0 !important;
   overflow: auto;
-  background: rgba(199, 199, 199, 0.432);;
+  background: rgb(44 44 44 / 95%);
   box-shadow: 0px 1px 2px 0px rgba(204, 204, 204, 0.28) inset;
   overflow-x: none;
 }
@@ -532,9 +533,9 @@ input::placeholder {
 }
 
 .content{
-  margin: auto;
   padding: 15px;
-  max-width: 960px;
+  max-width: 69%;
+  margin:auto;
 }
 
 @media only screen and (max-width: 900px) {
@@ -605,4 +606,9 @@ md-sidenav.md-closed-remove {
   width: 100%;
   margin-top: -0.7em;
   margin-bottom: 1em;;
+}
+
+.mat-card-sm-image {
+  width: auto !important;
+  height: 80px;
 }

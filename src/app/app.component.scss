@@ -60,7 +60,7 @@ color:rgba(255, 255, 255, 0.918);
   width:100%;
   top: 0;
   height: 428.2px;
-  z-index: -1;
+  z-index: -2;
   padding:0;
   margin: 0;
   background: url(https://molex.cloud/2022/October/22/_h32/cover-top.jpg);
@@ -68,6 +68,15 @@ color:rgba(255, 255, 255, 0.918);
   background-position-y: bottom;
 }
 
+.bottom{
+  position: absolute;
+  width:100%;
+  bottom: 0;
+  z-index:-1;
+  height: 100vh;
+  background: linear-gradient(0deg, rgba(45,47,52,1) 0%, rgba(45,47,52,0.75) 25%, rgba(45,47,52,0.50) 50%, rgba(45,47,52,0.25) 75%),
+  rgba(45,47,52,0) 100%;
+}
 
 .child {
   width: 90% !important;

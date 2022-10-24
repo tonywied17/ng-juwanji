@@ -18,6 +18,10 @@ export class BoardUserComponent implements OnInit {
   showAdminControls = false;
   showUserFeed = false;
   private roles: string[] = [];
+  image: any;
+  eagles = "https://molex.cloud/2022/October/15/_3nT/birds.png";
+  phillies = "https://molex.cloud/2022/October/15/_fYS/phils.png";
+  
 
   message = '';
 
@@ -59,6 +63,7 @@ export class BoardUserComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.Blogs = data;
+
           console.log(data);
         },
         error: (e) => console.error(e)
@@ -77,4 +82,20 @@ export class BoardUserComponent implements OnInit {
       });
   }
 
+  getIcon(tag: any){
+    
+    console.log(tag)
+
+    if(tag == "Phillies"){
+      this.image = this.phillies;
+    }
+    
+    if(tag == "Eagles"){
+      this.image = this.eagles
+    }
+
+    console.log(this.image)
+    return this.image;
+
+  }
 }

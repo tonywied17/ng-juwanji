@@ -1,13 +1,15 @@
-<header class="page">
+<!-- <header class="page">
   <h1 class="page-title">Manage Articles</h1>
   <div class="page-desc">This will be the page to list and manage all the articles.</div>
-</header>
+</header> -->
 
-<div class="content">
+
+<div class="content" style="max-width: 82% !important;">
   <div *ngIf="showBlogPage">
-    <h2><a routerLink="../add" class="post-btn">Create an Article</a></h2>
 
-    <h2>Filter Articles</h2>
+    <button class="white-override" style="margin-bottom:1em;float:right;" routerLink="../add" mat-raised-button color="primary">
+      <i style="margin-right:0.4em;font-size:large;" class="fa-duotone fa-file-pen"></i> New Post</button>
+
 
 
     <mat-form-field style="width: 100% !important" appearance="fill">
@@ -16,20 +18,30 @@
     </mat-form-field>
 
 
-    <h2>Articles List</h2>
-    <ul>
-      <li style="color:rgb(107, 255, 78);text-decoration: underline;cursor: pointer;"
-        *ngFor="let blog of blog; let i = index" [class.active]="i == currentIndex" (click)="setActiveBlog(blog, i)">
-        {{ blog.title }}
-      </li>
-    </ul>
+
+
+
+    <mat-accordion>
+      <mat-expansion-panel hideToggle *ngFor="let blog of blog; let i = index" [class.active]="i == currentIndex"
+        (click)="setActiveBlog(blog, i)">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="white-override">
+            {{ blog.title }}
+          </mat-panel-title>
+          <mat-panel-description class="white-override" style="font-weight:100;">
+            {{ blog.description }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-blog-details [viewMode]="true" [currentBlog]="currentBlog"></app-blog-details>
+      </mat-expansion-panel>
+    </mat-accordion>
 
     <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllBlog()">
         Remove All
       </button> -->
 
 
-    <app-blog-details [viewMode]="true" [currentBlog]="currentBlog"></app-blog-details>
+
 
     <h2>Upload Files</h2>
     <app-file-upload></app-file-upload>

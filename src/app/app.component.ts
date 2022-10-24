@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   showModeratorBoard = false;
   username?: string;
   titlePage: any;
- 
+  opened: boolean = false
 
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService, ) { }
 
@@ -38,6 +38,8 @@ export class AppComponent implements OnInit {
 
       this.username = user.username;
     }
+
+    
     
   }
 
@@ -49,8 +51,6 @@ export class AppComponent implements OnInit {
     
   }
 
-  
-  
 
   theme(theme: any) {
     if (theme) {
