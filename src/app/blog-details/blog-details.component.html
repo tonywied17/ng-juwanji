@@ -6,7 +6,7 @@
 
 <div *ngIf="viewMode; else editable">
 
-    <mat-card *ngIf="currentBlog.id">
+    <mat-card *ngIf="currentBlog.id" class="blog-card">
 
       <div [innerHTML]="currentBlog.post"></div>
 

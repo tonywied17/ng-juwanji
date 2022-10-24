@@ -1,0 +1,12 @@
+.blog-card {
+    background: #1c1c1c;
+}
+
+@media screen and (max-width: 900px) {
+    .content{
+        max-width: unset !important;
+    }
+    .blog-card{
+        width: 100%
+    }
+}

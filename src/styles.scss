@@ -373,10 +373,9 @@ footer {
   padding: 2em;
   margin-right: unset !important;
   margin:0 !important;
-  overflow: auto;
+  overflow: overlay;
   background: rgb(44 44 44 / 95%);
   box-shadow: 0px 1px 2px 0px rgba(204, 204, 204, 0.28) inset;
-  overflow-x: none;
 }
 
 .nav{
@@ -451,7 +450,7 @@ mat-chip {
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: #566878de;
+    background: #3a3a3ade;
   }
 
 
@@ -534,7 +533,6 @@ input::placeholder {
 
 .content{
   padding: 15px;
-  max-width: 69%;
   margin:auto;
 }
 
@@ -555,7 +553,9 @@ input::placeholder {
   margin-left:13px;
 }
 .info{
-  margin-top: 0.8em;
+  height: 42px !important;
+  border-top-left-radius: unset !important;
+  border-top-right-radius: unset !important;
 }
 }
 
@@ -611,4 +611,15 @@ md-sidenav.md-closed-remove {
 .mat-card-sm-image {
   width: auto !important;
   height: 80px;
+}
+
+
+
+@media screen and (max-width: 900px) {
+  .content{
+      max-width: unset !important;
+  }
+  .blog-card{
+      width: 100%
+  }
 }

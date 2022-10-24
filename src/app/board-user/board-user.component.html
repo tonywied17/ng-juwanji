@@ -4,13 +4,13 @@
   <div class="page-desc">This will be the page to view the headlines/posts and sort by team and then hit read more.</div>
 </header> -->
 
-<div class="content">
-
+<div class="content articles">
+<div class="toggle-btns">
     <a class="post-btn" (click)="getBlog()">All</a>
     <a class="post-btn" (click)="getBlogFromTag('Phillies')">Phillies</a>
     <a class="post-btn" (click)="getBlogFromTag('Eagles')">Eagles</a>
     <a class="post-btn" (click)="getBlogFromTag('Sixers')">Sixers</a>
-
+  </div>
 <div *ngFor="let blog of Blogs; index as i;">
 
     <mat-card *ngIf="blog.published" style="margin: 1em;">
