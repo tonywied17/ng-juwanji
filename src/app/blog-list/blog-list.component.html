@@ -4,46 +4,54 @@
 </header> -->
 
 
-<div class="content" style="max-width: 82% !important;">
-  <div *ngIf="showBlogPage">
+<div class="content">
+  <div class="row">
 
-    <button class="white-override" style="margin-bottom:1em;float:right;" routerLink="../add" mat-raised-button color="primary">
-      <i style="margin-right:0.4em;" class="fa-duotone fa-file-pen"></i> New Post</button>
+    <div class="column-left">
 
+      <div *ngIf="showBlogPage">
 
-
-    <mat-form-field style="width: 100% !important" appearance="fill">
-      <mat-label>Search</mat-label>
-      <input matInput placeholder="Search by title" [(ngModel)]="title" (keydown.enter)="searchTitle()">
-    </mat-form-field>
+        <button class="white-override" style="margin-bottom:1em;float:right;" routerLink="../add" mat-raised-button
+          color="primary">
+          <i style="margin-right:0.4em;" class="fa-duotone fa-file-pen"></i> New Post</button>
 
 
 
+        <mat-form-field style="width: 100% !important" appearance="fill">
+          <mat-label>Search</mat-label>
+          <input matInput placeholder="Search by title" [(ngModel)]="title" (keydown.enter)="searchTitle()">
+        </mat-form-field>
 
 
-    <mat-accordion>
-      <mat-expansion-panel hideToggle *ngFor="let blog of blog; let i = index" [class.active]="i == currentIndex"
-        (click)="setActiveBlog(blog, i)">
-        <mat-expansion-panel-header>
-          <mat-panel-title class="white-override">
-            {{ blog.title }}
-          </mat-panel-title>
-          <mat-panel-description class="white-override" style="font-weight:100;">
-            {{ blog.description }}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <app-blog-details [viewMode]="true" [currentBlog]="currentBlog"></app-blog-details>
-      </mat-expansion-panel>
-    </mat-accordion>
 
-    <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllBlog()">
+
+
+        <mat-accordion>
+          <mat-expansion-panel hideToggle *ngFor="let blog of blog; let i = index" [class.active]="i == currentIndex"
+            (click)="setActiveBlog(blog, i)">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="white-override">
+                {{ blog.title }}
+              </mat-panel-title>
+              <mat-panel-description class="white-override" style="font-weight:100;">
+                {{ blog.description }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-blog-details [viewMode]="true" [currentBlog]="currentBlog"></app-blog-details>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllBlog()">
         Remove All
       </button> -->
+      </div>
+    </div>
+    <div class="column-right">
+
+      <app-file-upload></app-file-upload>
+    </div>
 
 
 
-
-    <h2>Upload Files</h2>
-    <app-file-upload></app-file-upload>
   </div>
 </div>

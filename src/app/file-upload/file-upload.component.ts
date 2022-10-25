@@ -62,4 +62,9 @@ export class FileUploadComponent implements OnInit {
       this.selectedFiles = undefined;
     }
   }
+
+  fileInputChange(fileInputEvent: any) {
+    console.log(fileInputEvent.target.files[0]);
+  }
+  
 }
