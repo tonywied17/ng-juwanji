@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TokenStorageService } from './_services/token-storage.service';
 import { UserService } from './_services/user.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   titlePage: any;
   opened: boolean = false
 
-  constructor(private tokenStorageService: TokenStorageService, private userService: UserService, ) { }
+  constructor(private tokenStorageService: TokenStorageService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -69,6 +69,10 @@ export class AppComponent implements OnInit {
 
   logout(): void {
     this.tokenStorageService.signOut();
-    window.location.reload();
+    this.router.navigate(['/home']);
+    setTimeout(() => {
+      window.location.reload();
+    }, 10);
+    
   }
 }

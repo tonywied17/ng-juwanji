@@ -15,12 +15,8 @@
        <p>
         <b>{{ currentBlog.published ? "Published" : "Pending" }}</b> 
        </p>
-
+       <button routerLink="/blog/{{ currentBlog.id }}" mat-raised-button>Edit Post</button>
   
-      <a
-        class="badge badge-warning"
-        routerLink="/blog/{{ currentBlog.id }}">
-        Edit Post </a>
     </mat-card>
   
     <div *ngIf="!currentBlog">
