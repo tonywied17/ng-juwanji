@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Blog } from '../_models/blog.model';
 
-const baseUrl = 'https://api.molex.cloud/blog';
+const baseUrl = 'https://api.tonewebdesign.com/juwanji/blog';
 
 @Injectable({
   providedIn: 'root'

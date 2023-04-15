@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FileUploadService {
-  private baseUrl = 'https://api.molex.cloud/';
+  private baseUrl = 'https://api.tonewebdesign.com/juwanji';
 
   constructor(private http: HttpClient) { }
 
